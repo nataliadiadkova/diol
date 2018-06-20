@@ -1,0 +1,117 @@
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+@font-face { font-family: "Myriad-Pro"; font-weight: 400; font-style: normal; src: url("../fonts/MyriadPro/Myriad-Pro.otf?#iefix") format("opentype"), url("../fonts/MyriadPro/Myriad-Pro.woff") format("woff"), url("../fonts/MyriadPro/Myriad-Pro.ttf") format("truetype"); }
+@font-face { font-family: "NeoSansProBold"; font-weight: 600; font-style: normal; src: url("../fonts/NeoSansPro/NeoSansProBold.otf?#iefix") format("opentype"), url("../fonts/NeoSansPro/NeoSansProBold.woff") format("woff"), url("../fonts/NeoSansPro/NeoSansProBold.ttf") format("truetype"); }
+@font-face { font-family: "NeoSansPro-reg"; font-weight: 400; font-style: normal; src: url("../fonts/NeoSansPro/NeoSansPro-reg.otf?#iefix") format("opentype"), url("../fonts/NeoSansPro/NeoSansPro-reg.woff") format("woff"), url("../fonts/NeoSansPro/NeoSansPro-reg.ttf") format("truetype"); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+
+.head-nav .nav { display: flex; align-items: center; }
+.head-nav .nav img { margin-right: 6px; }
+.head-nav .nav ul { display: flex; align-items: center; max-width: 320px; justify-content: flex-start; height: 60px; }
+.head-nav .nav ul li { position: relative; margin-right: 25px; font-family: "Myriad-Pro"; font-weight: 400; color: #939ca2; font-size: 11px; }
+@media (min-width: 768px) { .head-nav .nav ul li { font-size: 13px; } }
+.head-nav .nav ul li a { color: #939ca2; }
+.head-nav .nav ul li a:hover { text-decoration: none; }
+.head-nav .nav ul li::after { content: ""; position: absolute; width: 13px; height: 1px; background-color: #939ca2; right: -19px; top: 6px; }
+.head-nav .nav ul li:nth-of-type(3) { margin-right: 0; }
+.head-nav .nav ul li:nth-of-type(3)::after { width: 0; height: 0; }
+.head-nav .head h1 { font-size: 20px; font-family: "NeoSansProBold"; font-weight: 600; }
+@media (min-width: 768px) { .head-nav .head h1 { font-size: 28px; } }
+
+.menu { margin-bottom: 24px; }
+.menu__categories { min-height: 96px; background-color: #eef8ff; display: flex; border: 2px solid #e5f0fb; border-radius: 10px; margin-top: 20px; flex-wrap: wrap; flex-direction: column; align-items: flex-start; }
+@media (min-width: 768px) { .menu__categories { min-height: 46px; align-items: center; flex-direction: row; } }
+.menu__categories .colors { margin-left: 11px; max-width: 90%; flex-basis: 90%; position: relative; margin-top: 7px; /* Hide the browser's default radio button */ /* Create a custom radio button */ /* On mouse-over, add a grey background color */ /* Create the indicator (the dot/circle - hidden when not checked) */ /* Show the indicator (dot/circle) when checked */ /* Style the indicator (dot/circle) */ }
+@media (min-width: 768px) { .menu__categories .colors { max-width: 24%; flex-basis: 24%; }
+  .menu__categories .colors::after { content: ""; position: absolute; height: 23px; width: 1px; top: 0; right: 0; background-color: #c2d1dc; } }
+.menu__categories .colors span { font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 14px; }
+.menu__categories .colors .container { display: inline-block; position: relative; padding-left: 5px; margin-bottom: 12px; cursor: pointer; font-size: 22px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.menu__categories .colors .container:nth-of-type(1) .checkmark { background-color: #e30013; }
+.menu__categories .colors .container:nth-of-type(2) .checkmark { background-color: #3b3b3b; }
+.menu__categories .colors .container:nth-of-type(3) .checkmark { background-color: #e3c400; }
+.menu__categories .colors .container:nth-of-type(4) .checkmark { background-color: #ffffff; }
+.menu__categories .colors .container:nth-of-type(5) .checkmark { background-color: #76e300; }
+.menu__categories .colors .container:nth-of-type(6) .checkmark { background-color: #e300a0; }
+.menu__categories .colors .container:nth-of-type(7) .checkmark { background-color: #e37000; }
+.menu__categories .colors .container input { position: absolute; opacity: 0; cursor: pointer; }
+.menu__categories .colors .checkmark { position: absolute; top: 0; left: 0; height: 17px; width: 17px; background-color: #eee; border-radius: 50%; }
+.menu__categories .colors .container:hover input ~ .checkmark { background-color: #ccc; }
+.menu__categories .colors .checkmark:after { content: ""; position: absolute; display: none; }
+.menu__categories .colors .container input:checked ~ .checkmark:after { display: block; }
+.menu__categories .colors .container .checkmark:after { top: -4px; left: -4px; width: 23px; height: 23px; border-radius: 50%; border: 1px solid #e30013; }
+.menu__categories .choose { display: flex; justify-content: center; position: relative; max-width: 100%; flex-basis: 100%; margin-top: 7px; margin-left: 11px; /* Hide the browser's default checkbox */ /* Create a custom checkbox */ /* On mouse-over, add a grey background color */ /* When the checkbox is checked, add a blue background */ /* Create the checkmark/indicator (hidden when not checked) */ /* Show the checkmark when checked */ /* Style the checkmark/indicator */ }
+@media (min-width: 768px) { .menu__categories .choose { max-width: 50%; flex-basis: 50%; margin-top: 0; margin-left: 0; }
+  .menu__categories .choose::after { content: ""; position: absolute; height: 23px; width: 1px; top: 0; right: 0; background-color: #c2d1dc; } }
+.menu__categories .choose .container { display: inline-block; position: relative; padding-left: 22px; cursor: pointer; font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 11px; padding-top: 2px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+@media (min-width: 768px) { .menu__categories .choose .container { font-size: 14px; } }
+.menu__categories .choose .container input { position: absolute; opacity: 0; cursor: pointer; }
+.menu__categories .choose .checkmark { position: absolute; top: 0; left: 0; height: 11px; width: 11px; background-color: #d7e2ea; border: 1px solid #bdcbd5; border-radius: 4px; }
+@media (min-width: 768px) { .menu__categories .choose .checkmark { height: 16px; width: 16px; } }
+.menu__categories .choose .container:hover input ~ .checkmark { background-color: #ccc; }
+.menu__categories .choose .container input:checked ~ .checkmark { background-color: #f63e3d; border: 1px solid #c12524; }
+.menu__categories .choose .checkmark:after { content: ""; position: absolute; display: none; }
+.menu__categories .choose .container input:checked ~ .checkmark:after { display: block; }
+.menu__categories .choose .container .checkmark:after { left: 5px; top: 0px; width: 5px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.menu__categories .sort { font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 14px; max-width: 90%; flex-basis: 90%; display: flex; justify-content: flex-end; margin-top: 11px; margin-left: 11px; }
+@media (min-width: 768px) { .menu__categories .sort { max-width: 23%; flex-basis: 23%; margin-top: 0; margin-left: 0; } }
+.menu__categories .sort a:nth-of-type(1) { margin-right: 5px; }
+.menu__categories .sort span:nth-of-type(2) a { margin-right: 5px; color: #ff0000; text-decoration: underline; text-decoration-style: dashed; }
+.menu__categories .sort span:nth-of-type(2) a:hover { text-decoration: none; }
+.menu__categories .sort span:nth-of-type(1) { margin-right: 10px; }
+
+.items-wrapper .container { display: flex; justify-content: flex-start; flex-wrap: wrap; }
+.items-wrapper .container .item { flex-basis: 90%; max-width: 90%; display: flex; flex-direction: column; align-items: center; padding: 13px 32px; border: 1px solid #d0dbe6; border-radius: 10px; overflow: hidden; }
+@media (min-width: 480px) { .items-wrapper .container .item { flex-basis: 35%; max-width: 35%; } }
+@media (min-width: 768px) { .items-wrapper .container .item { flex-basis: 24%; max-width: 24%; } }
+@media (min-width: 890px) { .items-wrapper .container .item { flex-basis: 13.1111111111%; max-width: 13.1111111111%; } }
+.items-wrapper .container .item .img { max-height: 130px; min-height: 130px; margin-bottom: 12px; }
+.items-wrapper .container .item .img img { height: 100%; }
+.items-wrapper .container .item .title h3 { font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 14px; text-align: center; text-decoration: underline; color: #0093ca; margin-bottom: 12px; height: 2em; overflow: hidden; }
+.items-wrapper .container .item .description { margin-bottom: 9px; }
+.items-wrapper .container .item .description p { text-align: center; font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 13px; overflow: hidden; height: 3.3em; overflow: hidden; }
+.items-wrapper .container .item .price { font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 12px; margin-bottom: 5px; }
+.items-wrapper .container .item .price span { font-size: 18px; font-family: "NeoSansProBold"; font-weight: 600; }
+.items-wrapper .container .item .canceled { position: relative; margin-bottom: 4px; }
+.items-wrapper .container .item .canceled:before { content: ""; position: absolute; width: 2px; height: 204.421356%; top: -60.710678%; display: block; background: red; left: 38%; transform: translate(50%, 0) rotate(77deg); }
+.items-wrapper .container .item .canceled span { font-family: "NeoSansPro-reg"; font-weight: 400; font-size: 15px; color: #aaaaaa; }
+.items-wrapper .container .item .number { display: flex; align-items: center; }
+.items-wrapper .container .item .number form { display: inline-block; position: relative; }
+.items-wrapper .container .item .number form::after { content: ""; position: absolute; width: 101px; height: 39px; top: -4px; left: -5px; background-color: #eef8ff; z-index: -1; border-bottom-left-radius: 14px; border-top-left-radius: 14px; }
+.items-wrapper .container .item .number form input { width: 49px; height: 19px; border-radius: 14px; border: 1px solid #cacbcb; padding: 5px; color: #1f1f1f; font-size: 13px; }
+.items-wrapper .container .item .number form input::-moz-placeholder { color: #1f1f1f; }
+.items-wrapper .container .item .number form input::-webkit-input-placeholder { color: #1f1f1f; }
+.items-wrapper .container .item .number .signs { display: inline-block; }
+.items-wrapper .container .item .number .signs span { height: 12px; width: 12px; }
+.items-wrapper .container .item .number .signs span a { display: block; height: 12px; width: 12px; margin: 0 2px; }
+.items-wrapper .container .item .number .signs span a img { width: 100%; }
+.items-wrapper .container .item .number .basket { display: inline-block; width: 40px; height: 40px; background-color: #f73d3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.items-wrapper .container .item .number .basket .img-basket { width: 20px; height: 20px; }
+.items-wrapper .container .item .number .basket .img-basket img { width: 100%; }
+
+.pag .pag-wrapper { min-height: 46px; background-color: #eef8ff; display: flex; align-items: center; border: 2px solid #e5f0fb; border-radius: 10px; margin-top: 30px; flex-wrap: wrap; justify-content: space-between; padding: 0; }
+@media (min-width: 768px) { .pag .pag-wrapper { padding: 0 17px; } }
+.pag .pag-wrapper > div a { font-family: "NeoSansPro-reg"; font-weight: 400; color: #60666a; font-size: 11px; }
+@media (min-width: 768px) { .pag .pag-wrapper > div a { font-size: 14px; } }
+.pag .pag-wrapper > div img { margin: 0 9px; }
+.pag ul.pagination { display: inline-block; padding: 0; margin: 0; }
+.pag ul.pagination li { display: inline; }
+.pag ul.pagination li a { color: black; float: left; padding: 6px 6px; text-decoration: none; transition: background-color .3s; font-size: 11px; color: #60666a; font-family: "NeoSansPro-reg"; font-weight: 400; text-decoration: underline; }
+@media (min-width: 768px) { .pag ul.pagination li a { font-size: 14px; } }
+.pag ul.pagination li a.active { font-family: "NeoSansProBold"; font-weight: 600; }
+.pag ul.pagination li a:hover:not(.active) { text-decoration: none; }

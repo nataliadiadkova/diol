@@ -1,0 +1,656 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import 'const';
+@import 'mixins';
+@import 'fonts';
+
+@include font-face("Myriad-Pro", "MyriadPro/Myriad-Pro", 400);
+@include font-face("NeoSansProBold", "NeoSansPro/NeoSansProBold", 600);
+@include font-face("NeoSansPro-reg", "NeoSansPro/NeoSansPro-reg", 400);
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.head-nav {
+    .nav {
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 6px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            max-width: 320px;
+            justify-content: flex-start;
+            height: 60px;
+
+            li {
+                position: relative;
+                margin-right: 25px;
+                font-family: $MyriadPro-font-family;
+                font-weight: 400;
+                color: $nav-color;
+                font-size: 11px;
+
+                @media (min-width: 768px) {
+                    font-size: 13px;
+                }
+
+                a {
+                    color: $nav-color;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 13px;
+                    height: 1px;
+                    background-color: $nav-color;
+                    right: -19px;
+                    top: 6px;
+                }
+
+                &:nth-of-type(3) {
+                    margin-right: 0;
+
+                    &::after {
+                        width: 0;
+                        height: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .head {
+
+        h1 {
+            font-size: 20px;
+            font-family: $NeoSans-font-family;
+            font-weight: 600;
+
+            @media (min-width: 768px) {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+.menu {
+    margin-bottom: 24px;
+
+    &__categories {
+        min-height: 96px;
+        background-color: #eef8ff;
+        display: flex;
+        border: 2px solid #e5f0fb;
+        border-radius: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (min-width: 768px) {
+            min-height: 46px;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .colors {
+            margin-left: 11px;
+            max-width: 90%;
+            flex-basis: 90%;
+            position: relative;
+            margin-top: 7px;
+
+            @media (min-width: 768px) {
+                max-width: 24%;
+                flex-basis: 24%;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 23px;
+                    width: 1px;
+                    top: 0;
+                    right: 0;
+                    background-color: #c2d1dc;
+                }
+            }
+
+            span {
+                font-family: $NeoSans-reg-font-family;
+                font-weight: 400;
+                font-size: 14px;
+            }
+            .container {
+                display: inline-block;
+                position: relative;
+                padding-left: 5px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                &:nth-of-type(1) {
+                    .checkmark {
+                        background-color: #e30013;
+                    }
+                }
+    
+                &:nth-of-type(2) {
+                    .checkmark {
+                        background-color: #3b3b3b;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    .checkmark {
+                        background-color: #e3c400;
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    .checkmark {
+                        background-color: #ffffff;
+                    }
+                }
+
+                &:nth-of-type(5) {
+                    .checkmark {
+                        background-color: #76e300;
+                    }
+                }
+
+                &:nth-of-type(6) {
+                    .checkmark {
+                        background-color: #e300a0;
+                    }
+                }
+
+                &:nth-of-type(7) {
+                    .checkmark {
+                        background-color: #e37000;
+                    }
+                }
+            }
+            
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+            
+            /* Create a custom radio button */
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 17px;
+                width: 17px;
+                background-color: #eee;
+                border-radius: 50%;
+            }
+            
+            /* On mouse-over, add a grey background color */
+            .container:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+
+            /* Create the indicator (the dot/circle - hidden when not checked) */
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            
+            /* Show the indicator (dot/circle) when checked */
+            .container input:checked ~ .checkmark:after {
+                display: block;
+            }
+            
+            /* Style the indicator (dot/circle) */
+            .container .checkmark:after {
+                top: -4px;
+                left: -4px;
+                width: 23px;
+                height: 23px;
+                border-radius: 50%;
+                border: 1px solid #e30013;
+            }
+        }
+        .choose {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            max-width: 100%;
+            flex-basis: 100%;
+            margin-top: 7px;
+            margin-left: 11px;
+
+            @media (min-width: 768px) {
+                max-width: 50%;
+                flex-basis: 50%;
+                margin-top: 0;
+                margin-left: 0;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 23px;
+                    width: 1px;
+                    top: 0;
+                    right: 0;
+                    background-color: #c2d1dc;
+                }
+            }
+
+            .container {
+                display: inline-block;
+                position: relative;
+                padding-left: 22px;
+                cursor: pointer;
+                font-family: $NeoSans-reg-font-family;
+                font-weight: 400;
+                font-size: 11px;
+                padding-top: 2px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                @media (min-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+            
+            /* Hide the browser's default checkbox */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+            
+            /* Create a custom checkbox */
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 11px;
+                width: 11px;
+                background-color: #d7e2ea;
+                border: 1px solid #bdcbd5;
+                border-radius: 4px;
+
+                @media (min-width: 768px) {
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+            
+            /* On mouse-over, add a grey background color */
+            .container:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+            
+            /* When the checkbox is checked, add a blue background */
+            .container input:checked ~ .checkmark {
+                background-color: #f63e3d;
+                border: 1px solid #c12524;
+            }
+            
+            /* Create the checkmark/indicator (hidden when not checked) */
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            
+            /* Show the checkmark when checked */
+            .container input:checked ~ .checkmark:after {
+                display: block;
+            }
+            
+            /* Style the checkmark/indicator */
+            .container .checkmark:after {
+                left: 5px;
+                top: 0px;
+                width: 5px;
+                height: 9px;
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+
+        .sort {
+            font-family: $NeoSans-reg-font-family;
+            font-weight: 400;
+            font-size: 14px;
+            max-width: 90%;
+            flex-basis: 90%;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 11px;
+            margin-left: 11px;
+
+            @media (min-width: 768px) {
+                max-width: 23%;
+                flex-basis: 23%;
+                margin-top: 0;
+                margin-left: 0;
+
+            }
+
+            a {
+                &:nth-of-type(1) {
+                    margin-right: 5px;
+                }
+            }
+
+            span {
+                &:nth-of-type(2) {
+                    a {
+                        margin-right: 5px;
+                        color: #ff0000;
+                        text-decoration: underline;
+                        text-decoration-style: dashed;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                &:nth-of-type(1) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.items-wrapper {
+    .container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .item {
+            flex-basis: 90%;
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 32px;
+            border: 1px solid #d0dbe6;
+            border-radius: 10px;
+            overflow: hidden;
+
+            @media (min-width: 480px) {
+                flex-basis: 35%;
+                max-width: 35%;
+            }
+
+            @media (min-width: 768px) {
+                flex-basis: 24%;
+                max-width: 24%;
+            }
+
+            @media (min-width: 890px) {
+                flex-basis: 13.1111111111%;
+                max-width: 13.1111111111%;
+            }
+
+            .img {
+                max-height: 130px;
+                min-height: 130px;
+                margin-bottom: 12px;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .title {
+
+                h3 {
+                    font-family: $NeoSans-reg-font-family;
+                    font-weight: 400;
+                    font-size: 14px;
+                    text-align: center;
+                    text-decoration: underline;
+                    color: #0093ca;
+                    margin-bottom: 12px;
+                    height: 2em;
+                    overflow: hidden;
+                }
+            }
+
+            .description {
+                margin-bottom: 9px;
+
+                p {
+                    text-align: center;
+                    font-family: $NeoSans-reg-font-family;
+                    font-weight: 400;
+                    font-size: 13px;
+                    overflow: hidden;
+                    height: 3.3em;
+                    overflow: hidden;
+                }
+            }
+
+            .price {
+                font-family: $NeoSans-reg-font-family;
+                font-weight: 400;
+                font-size: 12px;
+                margin-bottom: 5px;
+
+                span {
+                    font-size: 18px;
+                    font-family: $NeoSans-font-family;
+                    font-weight: 600;
+                }
+            }
+
+            .canceled {
+                position:relative;
+                margin-bottom: 4px;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 204.421356%;
+                    top: -60.710678%;
+                    display: block;
+                    background: red;
+                    left: 38%;
+                    transform: translate(50%, 0) rotate(77deg);
+                }
+
+                span {
+                    font-family: $NeoSans-reg-font-family;
+                    font-weight: 400;
+                    font-size: 15px;
+                    color: #aaaaaa;
+                }
+            }
+
+            .number {
+                display: flex;
+                align-items: center;
+
+                form {
+                    display: inline-block;
+                    position: relative;
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 101px;
+                        height: 39px;
+                        top: -4px;
+                        left: -5px;
+                        background-color: #eef8ff;
+                        z-index: -1;
+                        border-bottom-left-radius: 14px;
+                        border-top-left-radius: 14px;
+                    }
+
+                    input {
+                        width: 49px;
+                        height: 19px;
+                        border-radius: 14px;
+                        border: 1px solid #cacbcb;
+                        padding: 5px;
+                        color: #1f1f1f;
+                        font-size: 13px;
+
+                        &::-moz-placeholder  {
+                            color: #1f1f1f;
+                        }
+
+                        &::-webkit-input-placeholder {
+                            color: #1f1f1f;
+                        }
+                    }
+                }
+
+                .signs {
+                    display: inline-block;
+
+                    span {
+                        height: 12px;
+                        width: 12px;
+
+                        a {
+                            display: block;
+                            height: 12px;
+                            width: 12px;
+                            margin: 0 2px;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .basket {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #f73d3c;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .img-basket {
+                        width: 20px;
+                        height: 20px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pag {
+
+    .pag-wrapper {
+        min-height: 46px;
+        background-color: #eef8ff;
+        display: flex;
+        align-items: center;
+        border: 2px solid #e5f0fb;
+        border-radius: 10px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+
+        @media (min-width: 768px) {
+            padding: 0 17px;
+        }
+
+        > div {
+
+            a {
+                font-family: $NeoSans-reg-font-family;
+                font-weight: 400;
+                color: #60666a;
+                font-size: 11px;
+
+                @media (min-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+
+            img {
+                margin: 0 9px;
+            }
+        }
+    }
+
+    ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline;
+
+            a {
+                color: black;
+                float: left;
+                padding: 6px 6px;
+                text-decoration: none;
+                transition: background-color .3s;
+                font-size: 11px;
+                color: #60666a;
+                font-family: $NeoSans-reg-font-family;
+                font-weight: 400;
+                text-decoration: underline;
+
+                @media (min-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+
+            a.active {
+                font-family: $NeoSans-font-family;
+                font-weight: 600;
+            }
+
+            a:hover:not(.active) {text-decoration: none;}
+        }
+    }
+}
